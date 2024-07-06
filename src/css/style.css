@@ -8,6 +8,23 @@ body {
     background-image: url('https://i.pinimg.com/564x/c5/4e/f0/c54ef0ab311ef1c6b9e1dc1701f8abdb.jpg');
 }
 
+#mute-button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background: #ffffff; 
+    border-radius: 5px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+
+#mute-button.muted {
+    color: rgb(3, 3, 3);
+    background-color: rgb(124, 124, 124);
+}
+
 #game-board {
     background-color: hsl(0, 0%, 14%);
     border: 1vmin hsl(0, 0%, 6%) solid;
@@ -39,16 +56,17 @@ body {
     background-color: rgba(255, 255, 255, 0.5);
     display: flex;
     align-items: center;
-    border: 1px solid #000;
+    border: 1px solid #ffffff;
 }
 
 #level-bar {
     height: 100%;
     background-color: #008cff;
     width: 0;
+    position: absolute;
 }
 
-#level-number {
+#level-label {
+    position: relative;
     margin-left: 10px;
-    position: absolute;
 }
