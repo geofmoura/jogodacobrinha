@@ -6,6 +6,7 @@ const snakeBody = [
     { x: 11, y: 11 }
 ];
 let newSegments = 0;
+let snakeColor = 'green';
 
 export function update() {
     addSegments();
@@ -24,14 +25,19 @@ export function draw(gameBoard) {
         snakeElement.style.gridRowStart = segment.y;
         snakeElement.style.gridColumnStart = segment.x;
         snakeElement.classList.add('snake');
+        snakeElement.style.backgroundColor = snakeColor;
         
-        // Adicionar uma classe diferente para a cabeça da cobrinha
         if (index === 0) {
             snakeElement.classList.add('snake-head');
         }
         
         gameBoard.appendChild(snakeElement);
     });
+}
+
+export function setSnakeColor(color) {
+    console.log(`Setting snkae color to ${color}`);
+    snakeColor = color;
 }
 
 export function expandSnake(amount) {

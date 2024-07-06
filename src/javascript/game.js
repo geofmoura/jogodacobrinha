@@ -23,7 +23,7 @@ muteButton.addEventListener('click', () => {
         sound.muted = isMuted;
     });
     muteButton.innerHTML = isMuted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-up"></i>';
-    muteButton.classList.toggle('muted', isMuted); // Adiciona ou remove a classe 'muted'
+    muteButton.classList.toggle('muted', isMuted); 
 });
 
 requestAnimationFrame(main);
@@ -82,3 +82,10 @@ export function incrementFoodEaten() {
     foodEaten++;
     if (eatSound && !isMuted) eatSound.play();
 }
+
+document.querySelectorAll('#color-picker td').forEach(cell => {
+    cell.addEventListener('click', () => {
+        const color = cell.getAttribute('data-color');
+        setSnakeColor(color);
+    });
+});
