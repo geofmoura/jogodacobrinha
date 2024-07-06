@@ -29,10 +29,32 @@ export function draw(gameBoard) {
         
         if (index === 0) {
             snakeElement.classList.add('snake-head');
+            snakeElement.classList.add('snake-head');
+            const faceElement = document.createElement('div');
+            faceElement.classList.add('snake-face');
+            snakeElement.appendChild(faceElement);
         }
         
         gameBoard.appendChild(snakeElement);
     });
+}
+function getFaceRotation() {
+    const head = snakeBody[0];
+    const nextSegment = snakeBody[1];
+    
+    if (!nextSegment) return 0; 
+
+    if (nextSegment.x > head.x) {
+        return 0; // Direita
+    } else if (nextSegment.x < head.x) {
+        return 180; // Esquerda
+    } else if (nextSegment.y > head.y) {
+        return 90; // Baixo
+    } else if (nextSegment.y < head.y) {
+        return -90; // Cima
+    }
+
+    return 0;
 }
 
 export function setSnakeColor(color) {
