@@ -74,8 +74,13 @@ function updateLevel() {
         foodEaten = 0;
         if (levelUpSound && !isMuted) levelUpSound.play();
         levelLabel.textContent = level;
+        increaseSpeed();
     }
     levelBar.style.width = `${(foodEaten / 5) * 100}%`;
+}
+
+function increaseSpeed() {
+    SNAKE_SPEED *= 1.5;
 }
 
 export function incrementFoodEaten() {

@@ -1,12 +1,12 @@
 import { getInputDirection } from "./input.js";
 
-export const SNAKE_SPEED = 5;
+export let SNAKE_SPEED = 5.5;
 
 const snakeBody = [
     { x: 11, y: 11 }
 ];
 let newSegments = 0;
-let snakeColor = 'green';
+let snakeColor = '';
 
 export function update() {
     addSegments();
