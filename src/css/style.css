@@ -8,6 +8,21 @@ body {
     background-image: url('https://i.pinimg.com/564x/c5/4e/f0/c54ef0ab311ef1c6b9e1dc1701f8abdb.jpg');
 }
 
+@font-face {
+    font-family: 'Crang';
+    src: url('/src/fonts/snakefont/Crang.TTF') format('truetype');
+}
+
+#game-title {
+    font-family: 'Crang';
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    position: relative;
+    top: -300px;
+    width: 50px;
+    right: -250px;
+}
+
 #mute-button {
     padding: 10px;
     font-size: 16px;
