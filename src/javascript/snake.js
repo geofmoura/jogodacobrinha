@@ -8,6 +8,11 @@ const snakeBody = [
 let newSegments = 0;
 let snakeColor = '';
 
+export function setSnakeColor(color) {
+    console.log(`Setting snake color to ${color}`);
+    snakeColor = color;
+}
+
 export function update() {
     addSegments();
     
@@ -25,19 +30,19 @@ export function draw(gameBoard) {
         snakeElement.style.gridRowStart = segment.y;
         snakeElement.style.gridColumnStart = segment.x;
         snakeElement.classList.add('snake');
-        snakeElement.style.backgroundColor = snakeColor;
-        
+        snakeElement.style.backgroundColor = snakeColor; // Aplicar a cor aqui
+
         if (index === 0) {
-            snakeElement.classList.add('snake-head');
             snakeElement.classList.add('snake-head');
             const faceElement = document.createElement('div');
             faceElement.classList.add('snake-face');
             snakeElement.appendChild(faceElement);
         }
-        
+
         gameBoard.appendChild(snakeElement);
     });
 }
+
 function getFaceRotation() {
     const head = snakeBody[0];
     const nextSegment = snakeBody[1];
@@ -55,11 +60,6 @@ function getFaceRotation() {
     }
 
     return 0;
-}
-
-export function setSnakeColor(color) {
-    console.log(`Setting snkae color to ${color}`);
-    snakeColor = color;
 }
 
 export function expandSnake(amount) {
