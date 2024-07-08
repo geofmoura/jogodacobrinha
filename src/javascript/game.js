@@ -1,6 +1,15 @@
-import { update as updateSnake, draw as drawSnake, getSnakeHead, snakeIntersection, SNAKE_SPEED } from './snake.js';
+import { update as updateSnake, draw as drawSnake, getSnakeHead, snakeIntersection, SNAKE_SPEED, setSnakeColor } from './snake.js';
 import { update as updateFood, draw as drawFood } from './food.js';
 import { outsideGrid } from './grid.js';
+
+const colorPickerCells = document.querySelectorAll('#color-picker td');
+
+colorPickerCells.forEach(cell => {
+    cell.addEventListener('click', () => {
+        const color = cell.getAttribute('data-color');
+        setSnakeColor(color); // Utilize a função importada do snake.js
+    });
+});
 
 const gameBoard = document.querySelector('#game-board');
 const levelBar = document.querySelector('#level-bar');
@@ -23,7 +32,7 @@ muteButton.addEventListener('click', () => {
         sound.muted = isMuted;
     });
     muteButton.innerHTML = isMuted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-up"></i>';
-    muteButton.classList.toggle('muted', isMuted); 
+    muteButton.classList.toggle('muted', isMuted);
 });
 
 requestAnimationFrame(main);
@@ -87,10 +96,3 @@ export function incrementFoodEaten() {
     foodEaten++;
     if (eatSound && !isMuted) eatSound.play();
 }
-
-document.querySelectorAll('#color-picker td').forEach(cell => {
-    cell.addEventListener('click', () => {
-        const color = cell.getAttribute('data-color');
-        setSnakeColor(color);
-    });
-});
