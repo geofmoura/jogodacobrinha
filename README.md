@@ -1,5 +1,5 @@
-# Jogo da Cobrinha
-## Bem-vindo ao repositório do Jogo da Cobrinha! Este projeto é uma implementação do clássico jogo da cobrinha utilizando HTML, CSS e JavaScript.
+# Jogo da Cobrinha Multifuncional.
+## Bem-vindo ao repositório do Jogo da Cobrinha! Este projeto é uma implementação do clássico jogo da cobrinha utilizando HTML, CSS e JavaScript, com as funcionalidades (além do jogo), é pode escolher a cor, silenciar som do jogo, passar de level e a dificuldade progredindo (velocidade).
 
 ### Funcionalidades
 #### Movimento da Cobrinha: Controle a cobrinha usando as setas do teclado.
