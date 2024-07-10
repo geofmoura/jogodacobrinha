@@ -1,29 +1,37 @@
+// Importa a função getInputDirection do módulo input.js
 import { getInputDirection } from "./input.js";
 
+// Define a velocidade da cobra
 export let SNAKE_SPEED = 5.5;
 
+// Inicializa o corpo da cobra com uma posição inicial
 const snakeBody = [
     { x: 11, y: 11 }
 ];
 let newSegments = 0;
 let snakeColor = '';
 
+// Define a cor da cobra
 export function setSnakeColor(color) {
     console.log(`Setting snake color to ${color}`);
     snakeColor = color;
 }
 
+// Atualiza o estado da cobra
 export function update() {
     addSegments();
     
+    // Obtém a direção de entrada do jogador
     const inputDirection = getInputDirection();
     for (let i = snakeBody.length - 2; i >= 0; i--) {
         snakeBody[i + 1] = { ...snakeBody[i] };
     }
+    // Move a cabeça da cobra na direção da entrada
     snakeBody[0].x += inputDirection.x;
     snakeBody[0].y += inputDirection.y;
 }
 
+// Desenha a cobra no tabuleiro do jogo
 export function draw(gameBoard) {
     snakeBody.forEach((segment, index) => {
         const snakeElement = document.createElement('div');
@@ -39,10 +47,12 @@ export function draw(gameBoard) {
             snakeElement.appendChild(faceElement);
         }
 
+        // Adiciona o elemento ao tabuleiro do jogo
         gameBoard.appendChild(snakeElement);
     });
 }
 
+// Calcula a rotação da cabeça da cobra com base na direção do próximo segmento
 function getFaceRotation() {
     const head = snakeBody[0];
     const nextSegment = snakeBody[1];
@@ -62,10 +72,12 @@ function getFaceRotation() {
     return 0;
 }
 
+// Expande a cobra adicionando novos segmentos
 export function expandSnake(amount) {
     newSegments += amount;
 }
 
+// Verifica se uma posição está ocupada pela cobra
 export function onSnake(position, { ignoreHead = false } = {}) {
     return snakeBody.some((segment, index) => {
         if (ignoreHead && index === 0) return false;
@@ -73,6 +85,7 @@ export function onSnake(position, { ignoreHead = false } = {}) {
     });
 }
 
+// Adiciona novos segmentos ao corpo da cobra
 export function addSegments() {
     for (let i = 0; i < newSegments; i++) {
         snakeBody.push({ ...snakeBody[snakeBody.length - 1] });
@@ -80,10 +93,12 @@ export function addSegments() {
     newSegments = 0;
 }
 
+//  Retorna a posição da cabeça da cobra
 export function getSnakeHead() {
     return snakeBody[0];
 }
 
+// Verifica se a cabeça da cobra colidiu com o corpo dela mesma
 export function snakeIntersection() {
     return onSnake(snakeBody[0], { ignoreHead: true });
 }
