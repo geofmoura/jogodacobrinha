@@ -23,3 +23,21 @@ Antes de começar, certifique-se de ter o seguinte instalado em sua máquina:
 1. Clone este repositório em sua máquina local:
    ```bash
    git clone https://github.com/geofmoura/jogodacobrinha.git
+   
+2. Navegue até o diretório do projeto:
+   ```bash
+   cd jogo-da-cobrinha
+   
+Abra o arquivo index.html no seu navegador web preferido.
+
+### Estrutura do Projeto
+
+- `index.html`: Estrutura básica do jogo.
+- `src/css/style.css`: Estilos para o jogo.
+- `src/javascript/`: Scripts JavaScript para a lógica do jogo.
+  - `game.js`: Controle do fluxo do jogo.
+  - `snake.js`: Lógica da cobrinha.
+  - `food.js`: Lógica da comida.
+  - `grid.js`: Controle da grade do jogo.
+  - `input.js`: Controle de entrada do teclado.
+- `src/sounds/`: Efeitos sonoros utilizados no jogo.
